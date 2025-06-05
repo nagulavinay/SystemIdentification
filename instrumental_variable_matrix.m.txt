@@ -1,0 +1,26 @@
+function Z = instrumental_variable_matrix(y, u, na, nb, nk)
+    % INSTRUMENTAL_VARIABLE_MATRIX Constructs the instrumental variable matrix
+    %
+    % Inputs:
+    %   y  - Output signal (vector)
+    %   u  - Input signal (vector)
+    %   na - Number of past outputs to include (AR order)
+    %   nb - Number of past inputs to include (X order)
+    %   nk - Input-output delay (number of samples)
+    %
+    % Output:
+    %   Z - Instrumental variable matrix
+    
+    N = length(y);  % Number of data points
+    Z = zeros(N, na + nb);  % Initialize instrumental variable matrix
+    
+    % Fill the instrumental variable matrix with past outputs
+    for i = 1:na
+        Z(i+1:N, i) = y(1:N-i);
+    end
+    
+    % Fill the instrumental variable matrix with past inputs
+    for j = 1:nb
+        Z(j+nk:N, na+j) = u(1:N-j-nk+1);
+    end
+end

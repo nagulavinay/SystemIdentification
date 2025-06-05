@@ -1,0 +1,28 @@
+function [X] = create_regression_matrix(u, y, na, nb, nk)
+    % Create_regression_matrix generates the regression matrix X
+    % Inputs:
+    % u - input signal
+    % y - output signal
+    % na - number of past outputs to include in regression
+    % nb - number of past inputs to include in regression
+    % nk - time delay
+
+    % Number of samples
+    N = length(u);
+    
+    % Number of rows in the regression matrix
+    rows = N - nb;
+    
+    % Initialize the regression matrix X
+    X = zeros(rows, na + nb);
+    
+    % Fill in the input columns
+    for i = 1:nb
+        X(:, i) = u(nb-i+1:N-i);
+    end
+    
+    % Fill in the output columns
+    for j = 1:na
+        X(:, nb+j) = -y(nb-j+1:N-j);
+    end
+end
