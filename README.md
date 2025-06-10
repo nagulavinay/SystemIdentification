@@ -32,15 +32,15 @@ Based on recursive calculation and nonlinear optimization (using fminunc) for pa
 # Model Evaluation
 To assess the accuracy and robustness of the models identified for the dynamic systems, I have conducted several analyses. These evaluations focused on comparing the output of each model with the actual system output and investigating how the models perform under different conditions such as measurement noise and dead time mis-specifications.
 
-Root Mean Square Error Calculation
-Frequency Response Comparison
-Effect of Measurement noise
-Impact of Daed time
+- Root Mean Square Error Calculation,
+Frequency Response Comparison,
+Effect of Measurement noise,
+Impact of Daed time.
 
 **Estimation of Both Systems (ARX, OE, FIR) without Measurement Noise**
 Set up MATLAB transfer functions for System 1 and System 2. Generated step and impulse response data using MATLAB commands (step and impulse).
 
-Testing without Noise: Applied the impulse and step responses to test each model’s performance, ensuring the implementation of ARX, OE, and FIR models functions correctly. Plotted the estimated model outputs alongside the actual noiseless system responses to visualize accuracy.
+**Testing without Noise:** Applied the impulse and step responses to test each model’s performance, ensuring the implementation of ARX, OE, and FIR models functions correctly. Plotted the estimated model outputs alongside the actual noiseless system responses to visualize accuracy.
 
 **APRBS-Based Estimation:**
 Used Generated Input data using an APRBS (Amplitude Pseudo-Random Binary Signal) and compared each estimated model's step and impulse responses with those of the actual systems.
